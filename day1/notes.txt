@@ -1,1 +1,6 @@
 This notes help us to understand about terraform
+Command	Purpose
+terraform init	Initialize the project and download providers
+terraform plan	Preview infrastructure changes
+terraform apply	Apply the changes
+terraform destroy	Remove managed resources
