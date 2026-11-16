@@ -4,3 +4,41 @@ terraform init	Initialize the project and download providers
 terraform plan	Preview infrastructure changes
 terraform apply	Apply the changes
 terraform destroy	Remove managed resources
+
+A resource represents something Terraform manages.
+
+Examples:
+Terraform resource	AWS object
+aws_instance	EC2 instance
+aws_s3_bucket	S3 bucket
+aws_vpc	VPC
+aws_sqs_queue	SQS queue
+aws_lambda_function	Lambda function
+
+A resource generally follows this structure:
+resource "RESOURCE_TYPE" "LOCAL_NAME" {
+  argument = value
+}
+
+
+For example:
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-example-unique-bucket-name"
+}
+
+
+Here:
+- resource declares an object Terraform manages.
+- aws_s3_bucket is the resource type.
+- my_bucket is your local Terraform name.
+- bucket is an argument supplied to the resource.
+1.3 Arguments versus attributes
+This is a very important interview topic.
+
+Arguments: Values that you provide to configure a resource.
+
+Attributes: Values exposed by a resource, including values calculated by the provider.
+Arguments	Attributes
+You provide them	Terraform/provider exposes them
+filename	id
+content	Computed resource information
