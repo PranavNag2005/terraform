@@ -1,0 +1,32 @@
+S3 bucket names must be globally unique, not just unique within your AWS account.
+
+Tags are key-value pairs used to organize AWS resources.
+
+tags = {
+  Environment = "Dev"
+  Project     = "Terraform-Learning"
+}
+Resource 2 – Enable versioning
+
+Without versioning, the previous object version isn't retained as a recoverable version.
+
+With versioning enabled, S3 retains different versions of the object.
+There are three things we can configure for s3 bucket:
+1) versioning
+2) encryption
+3) tags 
+4) Block public acces
+
+
+
+Versioning
+Keeps object versions
+
+Public access
+Blocks public access
+
+Encryption
+Encrypts stored objects
+
+
+Three additional Terraform resources configure the same S3 bucket.
