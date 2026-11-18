@@ -1,0 +1,39 @@
+Terraform has 3 primitive types and 3 collection types, plus 2 structural types and the special any type.
+
+Primitive types (single values)
+
+string: text, like "us-east-1"
+number: integers or decimals, like 3 or 2.5
+bool: true or false
+
+Collection types (many values of the same type)
+
+list(type): ordered, can contain duplicates, like ["a", "b", "a"]
+set(type): unordered, unique values only
+map(type): key-value pairs where all values share one type, like { env = "dev", team = "ops" }
+
+Structural types (many values of different types)
+
+object({...}): named attributes, each with its own type
+tuple([...]): ordered elements, each with its own type
+hcl
+variable "server" {
+  type = object({
+    name    = string
+    cpu     = number
+    enabled = bool
+  })
+}
+
+variable "mixed" {
+  type = tuple([string, number, bool])
+}
+
+Special type
+
+any: lets Terraform infer the type. It’s the default when you don’t set one.
+
+Type	Direct ${var.x}	What to use
+string, number, bool	Works	Nothing extra
+list, set, tuple	Error	join(", ", var.x)
+map, object	Error	jsonencode(var.x) or a for expression
