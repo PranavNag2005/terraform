@@ -1,0 +1,7 @@
+This is my file content.
+terraform output -> shows the outputs inthe console
+terraform output -json -> show in json format
+terraform output -raw filename
+terraform show - > shows the state file
+terraform state pull. -> pull the latest state and display in console
+terraform state list -> Lists managed resources
